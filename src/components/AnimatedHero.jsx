@@ -20,16 +20,18 @@ export default function AnimatedHero() {
             transition={{ duration: 0.8 }}
             className="text-center max-w-3xl"
           >
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white drop-shadow-sm">
-              Rohit
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-fuchsia-400 via-sky-400 to-emerald-400 bg-clip-text text-transparent drop-shadow-sm">
+              Rohit • SAP ABAP Developer
             </h1>
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="mt-2 text-base md:text-lg text-white/85"
+              className="mt-3 text-base md:text-lg text-white/90"
             >
-              ABAP Developer | SAP Specialist | AI Enthusiast
+              <span className="text-sky-300 font-semibold">ABAP</span> |{' '}
+              <span className="text-emerald-300 font-semibold">OData & Integrations</span> |{' '}
+              <span className="text-fuchsia-300 font-semibold">AI/LLM</span>
             </motion.p>
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -39,13 +41,13 @@ export default function AnimatedHero() {
             >
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-lg bg-white/90 text-gray-900 px-4 py-2 font-medium shadow hover:bg-white"
+                className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-sky-400 to-emerald-400 text-gray-900 px-4 py-2 font-semibold shadow hover:brightness-110 transition"
               >
                 View Projects
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-lg border border-white/40 text-white px-4 py-2 font-medium hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/40 text-white px-4 py-2 font-semibold hover:bg-white/10"
               >
                 Contact Me
               </a>

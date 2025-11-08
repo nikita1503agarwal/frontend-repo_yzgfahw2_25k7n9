@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const projects = [
   {
-    title: 'SAP-AI Integration Project',
+    title: 'SAP–AI Integration Project',
     tag: ['ABAP', 'REST APIs', 'Oracle AI'],
     desc: 'Integrated Oracle AI/ChatGPT with SAP to automate report generation and validation.',
     details: {
@@ -52,30 +52,48 @@ export default function ProjectsAdvanced() {
           transition={{ duration: 0.6 }}
           className="mb-8"
         >
-          <h2 className="text-2xl md:text-3xl font-bold">Case Studies</h2>
-          <p className="mt-2 text-muted-foreground">Selected projects with outcomes and approaches.</p>
+          <h2 className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-sky-400 via-fuchsia-400 to-emerald-400 bg-clip-text text-transparent">
+            Case Studies
+          </h2>
+          <p className="mt-2 text-sm md:text-base text-muted-foreground">
+            Selected projects with <span className="text-emerald-500 font-medium">outcomes</span> and <span className="text-sky-500 font-medium">approaches</span>.
+          </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((p, idx) => (
             <motion.article
               key={p.title}
-              className="group rounded-xl border bg-card p-6 hover:shadow-xl transition"
+              className="group rounded-xl border bg-card/60 backdrop-blur p-6 hover:shadow-xl transition"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, delay: idx * 0.05 }}
             >
-              <div className="text-lg font-semibold">{p.title}</div>
-              <div className="mt-1 flex flex-wrap gap-2 text-xs text-primary/90">
-                {p.tag.map((t) => (
-                  <span key={t} className="rounded-full border px-2 py-0.5">{t}</span>
+              <div className="text-lg font-semibold text-foreground">
+                {p.title}
+              </div>
+              <div className="mt-2 flex flex-wrap gap-2 text-xs">
+                {p.tag.map((t, i) => (
+                  <span
+                    key={t}
+                    className={
+                      'rounded-full px-2 py-0.5 text-gray-900 font-medium ' +
+                      (i === 0
+                        ? 'bg-gradient-to-r from-sky-400 to-cyan-300'
+                        : i === 1
+                        ? 'bg-gradient-to-r from-fuchsia-400 to-pink-300'
+                        : 'bg-gradient-to-r from-emerald-400 to-lime-300')
+                    }
+                  >
+                    {t}
+                  </span>
                 ))}
               </div>
-              <p className="mt-2 text-sm text-muted-foreground">{p.desc}</p>
+              <p className="mt-3 text-sm text-muted-foreground">{p.desc}</p>
               <button
                 onClick={() => setOpen(open === idx ? null : idx)}
-                className="mt-4 text-sm font-medium text-primary hover:underline"
+                className="mt-4 text-sm font-semibold text-sky-400 hover:text-sky-300 hover:underline"
               >
                 {open === idx ? 'Hide Details' : 'View Details'}
               </button>
@@ -84,14 +102,33 @@ export default function ProjectsAdvanced() {
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
                   animate={{ opacity: 1, height: 'auto' }}
-                  transition={{ duration: 0.4 }}
+                  transition={{ duration: 0.35 }}
                   className="mt-4 space-y-2 text-sm"
                 >
-                  <div><span className="font-medium">Problem:</span> {p.details.problem}</div>
-                  <div><span className="font-medium">Solution:</span> {p.details.solution}</div>
-                  <div><span className="font-medium">Tech:</span> {p.details.tech}</div>
-                  <div><span className="font-medium">Key Results:</span> {p.details.achievements}</div>
-                  <a className="text-primary hover:underline" href={p.details.link} target="_blank" rel="noreferrer">GitHub/Demo</a>
+                  <div>
+                    <span className="font-semibold text-fuchsia-400">Problem:</span>{' '}
+                    <span className="text-foreground/90">{p.details.problem}</span>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-emerald-400">Solution:</span>{' '}
+                    <span className="text-foreground/90">{p.details.solution}</span>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-sky-400">Tech:</span>{' '}
+                    <span className="text-foreground/90">{p.details.tech}</span>
+                  </div>
+                  <div>
+                    <span className="font-semibold text-yellow-400">Key Results:</span>{' '}
+                    <span className="text-foreground/90">{p.details.achievements}</span>
+                  </div>
+                  <a
+                    className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-fuchsia-400 to-emerald-400 font-semibold hover:opacity-80"
+                    href={p.details.link}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    GitHub / Demo →
+                  </a>
                 </motion.div>
               )}
             </motion.article>
