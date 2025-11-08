@@ -1,8 +1,11 @@
 import React from 'react';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
+import AnimatedHero from './components/AnimatedHero';
 import About from './components/About';
-import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Certifications from './components/Certifications';
+import ProjectsAdvanced from './components/ProjectsAdvanced';
+import Experience from './components/Experience';
 import Contact from './components/Contact';
 
 function App() {
@@ -10,9 +13,12 @@ function App() {
     <div className="min-h-screen bg-background text-foreground">
       <Navbar />
       <main className="pt-14">
-        <Hero />
+        <AnimatedHero />
         <About />
-        <Projects />
+        <Skills />
+        <Certifications />
+        <ProjectsAdvanced />
+        <Experience />
         <Contact />
         <footer className="py-10 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} Rohit • SAP ABAP Developer
